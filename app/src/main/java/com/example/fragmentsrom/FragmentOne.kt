@@ -9,20 +9,15 @@ import by.kirich1409.viewbindingdelegate.CreateMethod
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.fragmentsrom.databinding.FragmentOneBinding
 
-class FragmentOne : Fragment() {
+class FragmentOne : Fragment(R.layout.fragment_one) {
 
-    private val binding: FragmentOneBinding by viewBinding(CreateMethod.INFLATE)
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
-        return binding.root
-    }
+    private lateinit var binding: FragmentOneBinding
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding = FragmentOneBinding.bind(view)
 
-
-
+        binding.textView.text = "wegewrg"
     }
 
 }
