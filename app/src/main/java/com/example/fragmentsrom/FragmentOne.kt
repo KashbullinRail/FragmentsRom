@@ -5,20 +5,18 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.fragmentsrom.databinding.FragmentOneBinding
 
-class FragmentOne : Fragment() {
+class FragmentOne : Fragment(R.layout.fragment_one) {
 
-    private var  _binding: FragmentOneBinding? = null
+    private val binding by viewBinding(FragmentOneBinding::bind)
 
-    private val binding get() = _binding!!
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        _binding = FragmentOneBinding.inflate(inflater, container, false)
-        return binding.root
+
+
     }
 
 }
